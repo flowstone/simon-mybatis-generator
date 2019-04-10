@@ -13,6 +13,8 @@ Mybatis生成器
 <table  tableName="candidate" domainObjectName="Candidate" enableCountByExample="false"
     enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
     <generatedKey column="id" sqlStatement="MySql" identity="true" />
+    <!-- 该行是避免生成BLOBs文件，数据库中只要保存text类型的字段必须要该行-->
+    <columnOverride column="字段名" javaType="java.lang.String" jdbcType="VARCHAR" />
 </table>
 ```
 3. 执行Generator.java中的主函数，生成对应的方法
